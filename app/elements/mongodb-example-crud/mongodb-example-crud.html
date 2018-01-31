@@ -1,0 +1,50 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<!-- bplint-disable no-unused-import -->
+<link rel="import" href="../../bower_components/iron-resizable-behavior/iron-resizable-behavior.html">
+<!-- bplint-disable no-unused-import -->
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../base-layout/base-header-layout/base-header-layout.html">
+<link rel="import" href="../base-layout/base-single-grid-item-wrapper/base-single-grid-item-wrapper.html">
+<link rel="import" href="../base-layout/base-drawer-layout/base-drawer-layout.html">
+<link rel="import" href="../base-shared-styles/base-shared-styles.html">
+<link rel="import" href="./mongodb-example-data.html">
+
+<dom-module id="mongodb-example-crud">
+  <template>
+    <style  include="base-shared-styles">
+      :host {
+        display: block;
+        position: relative;
+        height: 100%;
+      }
+    </style>
+
+    <mongodb-example-data items="{{items}}"></mongodb-example-data>
+
+    <base-header-layout x-title="Crud" no-back>
+      <div class="content">
+        <base-single-grid-item-wrapper>
+        <paper-listbox>
+          <template is="dom-repeat" items="[[items]]">
+            <paper-item>Bits was run at: [[item.dateRan]]</paper-item>
+          </template>
+        </paper-listbox>
+      </base-single-grid-item-wrapper>
+    </div>
+  </base-header-layout>
+
+  </template>
+  <script>
+    (() => {
+      'use strict';
+      Polymer({
+        is: 'mongodb-example-crud',
+        properties: {
+          items: {
+            type: Array
+          }
+        }
+      });
+    })();
+  </script>
+</dom-module>

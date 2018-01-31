@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<!-- bplint-disable no-unused-import -->
+<link rel="import" href="../base-message-center/base-message-center-behavior.html">
+<!-- bplint-disable no-unused-import -->
+
+<script>
+((global) => {
+  'use strict';
+
+  Polymer({
+    is: 'mongodb-example-manual-data',
+
+    behaviors: [
+      global.Bits.BaseMessageCenterBehavior
+    ],
+
+    properties: {
+      items: {
+        type: Array,
+        notify: true
+      }
+    },
+
+    ready: function() {
+      this.sendRequest('ListManualModule')
+      .then((items) => {
+        this.items = items;
+      });
+    }
+  });
+})(this);
+</script>

@@ -1,0 +1,24 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<!-- bplint-disable no-unused-import -->
+<link rel="import" href="../mongodb-crud-behavior/mongodb-crud-behavior.html">
+<!-- bplint-disable no-unused-import -->
+
+<script>
+((global) => {
+  'use strict';
+
+  Polymer({
+    is: 'mongodb-example-data',
+
+    behaviors: [
+      global.Bits.MongodbCrudBehavior
+    ],
+
+    properties: {
+      tag: {
+        value: 'myTag'
+      }
+    }
+  });
+})(this);
+</script>

@@ -1,0 +1,63 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<!-- bplint-disable no-unused-import -->
+<link rel="import" href="../../bower_components/iron-resizable-behavior/iron-resizable-behavior.html">
+<!-- bplint-disable no-unused-import -->
+<link rel="import" href="../base-layout/base-drawer-layout/base-drawer-layout.html">
+<link rel="import" href="../base-shared-styles/base-shared-styles.html">
+
+<dom-module id="mongodb-example">
+  <template>
+    <style  include="base-shared-styles">
+      :host {
+        display: block;
+        position: relative;
+        height: 100%;
+      }
+    </style>
+
+    <base-drawer-layout
+      id="layout"
+      m-name="example-mongodb"
+      m-icon="icons:swap-vert"
+      m-display-name="Mongodb Example"
+      pages="[[pages]]"
+      page-name="{{currentPage}}"
+      default-page-name="crud">
+    </base-drawer-layout>
+
+    <paper-toast id="snackbar"></paper-toast>
+
+  </template>
+  <script>
+    (() => {
+      'use strict';
+      Polymer({
+        is: 'mongodb-example',
+        behaviors: [Polymer.IronResizableBehavior],
+        properties: {
+          pages: {
+            type: Array,
+            value: () => {
+              return [{
+                name: 'crud',
+                element: 'mongodb-example-crud',
+                import: '/elements/mongodb-example-crud/mongodb-example-crud.html',
+                displayName: 'Crud',
+                icon: 'icons:perm-device-information'
+              }, {
+                name: 'manual',
+                element: 'mongodb-example-manual',
+                import: '/elements/mongodb-example-manual/mongodb-example-manual.html',
+                displayName: 'Manual',
+                icon: 'device:nfc'
+              }];
+            }
+          }
+        },
+        toggleSidenav: function() {
+          this.$.layout.toggleSidenav();
+        }
+      });
+    })();
+  </script>
+</dom-module>

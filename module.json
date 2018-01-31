@@ -1,0 +1,23 @@
+{
+    "category": "Examples",
+    "scopes": [{
+      "displayName": "Example",
+      "name": "example"
+    }],
+    "displayName": "Mongodb Example",
+    "name": "example-mongodb",
+    "appDir": "app/",
+    "contentImport": "/elements/mongodb-example/mongodb-example.html",
+    "contentElement": "mongodb-example",
+    "version": "0.0.5",
+    "widgets": [{
+      "import": "/elements/mongodb-example-widget/mongodb-example-widget.html",
+      "scopes": [{"name": "public"}],
+      "element": "mongodb-example-widget"
+    }],
+    "dependencies": {
+      "bits-base": "^2.0.0",
+      "mongodb": "^1.0.0"
+    },
+    "icon": "icons:swap-vert"
+}
